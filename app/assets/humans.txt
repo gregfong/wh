@@ -1,0 +1,16 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+/* TEAM */
+  Built by: Greg Fong
+  Site: http://hecka.net
+  Location: New York, NY
+  
+  Powered by: Arena
+  Site: http://are.na
+  Location: New York, NY
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: Brunch, Backbone.js, html5boilerplate, jQuery, Underscore.js, Stylus, eco
+  Software: Coda

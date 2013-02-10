@@ -1,0 +1,1 @@
+http://loganwhitephotography.com

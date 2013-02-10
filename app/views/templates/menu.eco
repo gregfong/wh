@@ -1,0 +1,5 @@
+<% for block in @blocks: %>
+  <% if block.class is 'Channel' and block.published is true and block.selected is true: %>
+    <li><a href="#/<%= block.slug %>"><%- block.title %></a><h2 class="channelTitle"><%- block.title %></h2></li>
+  <% end %>
+<% end %>

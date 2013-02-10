@@ -1,0 +1,243 @@
+lightZ = 1003
+menuZ = 1002
+scrimZ = 1004
+collectionZ = 1001
+
+@import 'nib'
+
+global-reset()
+
+*
+  box-sizing border-box
+
+html
+  text-rendering optimizeLegibility
+  
+body
+  font-family Georgia, serif
+
+a
+  text-decoration none
+  color #fff
+  
+a:visited
+  color #fff
+  
+a:hover
+  color #fff
+
+ul
+  list-style-type none
+  padding 0
+  
+  li
+    float left
+
+nav#primary
+  position fixed
+  top 50%
+  left 50%
+  width 500px
+  height 250px
+  margin-left -(@width/2)
+  margin-top -(@height/2)
+  background none
+  z-index menuZ
+  text-align center
+
+  ul
+    
+    li
+      display block
+      float left
+      
+      a
+        position relative
+        display block
+        width 91px
+        height 0
+        padding-top 28px
+        overflow hidden
+        background url('../images/white.png') top left no-repeat
+        margin-bottom 25px
+        border-bottom 4px solid rgba(0,0,0,0)
+        -webkit-transition-duration 0.4s
+        transition-duration 0.4s
+        
+      a:hover
+        border-bottom 4px solid rgba(0,0,0,1)
+        -webkit-transition-duration 0.4s
+        transition-duration 0.4s
+        
+    .channelTitle
+      position fixed
+      top 50%
+      left 50%
+      font-size 32px
+      z-index scrimZ
+      width: 318px
+      height: 80px
+      margin-left -(@width/2)
+      margin-top -(@height/2)
+      text-align center
+      line-height @height
+      display none
+    
+    li:first-child
+      margin 0 205px
+  
+    li:nth-child(2)
+      margin 0 57px 0 102px
+  
+    li:nth-child(3)
+      margin 0 102px 0 57px
+    
+    li:nth-child(4)
+      margin 0 159px 0 0
+      
+    li:nth-child(5)
+      margin 0 0 0 159px
+      
+    li:nth-child(6)
+      margin 0 57px 0 102px
+      
+    li:nth-child(7)
+      margin 0 102px 0 57px
+      
+    li:last-child
+      margin 0 205px
+      
+    li.selected
+
+      a
+        border-bottom 4px solid rgba(0,0,0,1)
+      
+nav#secondary
+  width 100%
+  height 36px
+  position fixed
+  bottom 0
+  display block
+  background #000
+  z-index scrimZ
+  border-top 1px #fff solid
+  
+  li
+    line-height 36px
+    margin-left 18px
+    color #fff
+  
+  a
+    color #fff
+  
+  a:visited
+    color #fff
+  
+  #logo
+    width 36px
+    height 0
+    padding-top 18px
+    overflow hidden
+    background url('../images/white.bug.png') top left no-repeat
+    margin-top 9px
+    display block
+  
+
+#collection
+  text-align center
+  margin 36px
+  z-index collectionZ
+  
+  .block
+    display inline-block
+    margin 8px
+    position relative
+    line-height 0
+  
+    img
+      max-width 100%
+      vertical-align baseline
+      display none
+  
+    .info
+      position absolute
+      display block
+      background rgba(0,0,0,0)
+      width 100%
+      height 100%
+      text-align left
+      color #fff
+      -webkit-transition-duration: 0.4s;
+      transition-duration: 0.4s;
+
+      p
+        display none
+        font-size 14px
+        line-height 20px
+        margin-left 10px
+        
+        strong
+          font-weight bold
+          
+        em, a
+          text-decoration underline
+
+          
+      p:first-child
+        margin-top 10px
+          
+  .block:hover
+    cursor pointer
+    
+    .info
+      background rgba(0,0,0,0.4)
+      -webkit-transition-duration: 0.4s;
+      transition-duration: 0.4s;
+      
+      p
+        display block
+
+#block 
+  display none
+  background rgba(0,0,0,0.9)
+  position fixed
+  top 0
+  right 0
+  bottom 0
+  left 0
+  text-align center
+  z-index lightZ
+
+  &.show
+
+  #slide
+    display table
+    margin-top -20px
+    width 100%
+    height 100%
+
+    .single
+      cursor pointer
+      display table-cell
+      vertical-align middle
+      text-align center
+
+    img
+      max-height 100%
+      max-width 100%
+
+    .info
+      display none
+
+#scrim
+  top 0
+  width 100%
+  height 100%
+  display none
+  background #fff
+  z-index scrimZ
+  position fixed
+
+#scrim.loading
+    display block
+    //background #fff url('../images/loader.gif') center center no-repeat

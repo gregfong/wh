@@ -1,0 +1,39 @@
+<% for block in @blocks: %>
+  <% if block.selected is true: %>
+    <div class="block">
+      <a href="#/<%= @channel.slug %>/<%= block.id %>">
+    
+        <% if block.class is "Image": %>
+          <!-- IMAGE -->
+          <div class="info" href="<%= block.image?.original?.url %>">
+            <p><% date = new Date(block.connected_at) %><%= (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear() %></p>
+            <% if block.description: %><%- block.description_html %><% end %>
+          </div>
+          <img src="<%= block.image?.display?.url %>" onload="$(this).fadeIn(1000);" />
+      
+        <% else if block.class is 'Link': %>
+          <!-- LINK -->
+          <% if block.image.display: %>
+            <img src="<%= block.image?.original?.url %>" alt="<%= block.title %>" />
+          <% else: %>
+            <p class="h3">
+            <a href="<%= block.source?.url %>" class="external url" target="_blank"><%= block.source?.url %></a>
+            </p>
+          <% end %>
+      
+        <% else if block.class is 'Text': %>
+          <!-- TEXT -->
+      
+        <% else if block.class is 'Channel': %>
+          <!-- CHANNEL 
+          <a class="h3 channelLink" href="#/<%- block.slug %>"><%- block.title %></a>-->
+      
+        <% else if block.class is "Media": %>
+          <!-- MEDIA -->
+          <%- block.embed?.html %>
+        <% end %>
+
+      </a>
+    </div>
+  <% end %>
+<% end %>
