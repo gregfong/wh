@@ -25,7 +25,6 @@ class exports.MainRouter extends Backbone.Router
         @current_slug = slug
         @collectionView = new CollectionView
           model       : @channel
-          collection  : @channel.contents
           selected    : @selected?.id
           
         $('#content').html @collectionView.render().el # render collectionView into #content  

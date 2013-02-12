@@ -5,7 +5,9 @@ class exports.CollectionView extends Backbone.View
     document.title =  "#{window.app.site_title} - #{@model.get 'title'}"
     @template = require "./templates/collection"
 
-  addAll: -> @collection.each @addOne
+    @model.on 'reload', @render, @
+
+  addAll: -> @model.contents.each @addOne
     
   addOne: (block) =>
     console.log 'selected', @options.selected
@@ -15,9 +17,10 @@ class exports.CollectionView extends Backbone.View
       selected = ""
   
   render: ->
-    @$el.append @template
+    console.log 'rendering CollectionView', @model
+    @$el.html @template
       channel : @model.toJSON()
-      blocks  : @collection.toJSON()
+      blocks  : @model.contents.toJSON()
 
     @addAll()
 

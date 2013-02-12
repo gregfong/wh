@@ -40,5 +40,5 @@ class exports.BlockView extends Backbone.View
 
   closeView: ->
     $('#block').hide()
-    app.router.navigate "/#{@channel.get('slug')}"
+    app.router.navigate "#/#{@channel.get('slug')}"
     @remove()
