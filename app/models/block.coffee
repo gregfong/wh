@@ -1,5 +1,13 @@
 class exports.Block extends Backbone.Model
 
+  fetchThumb: ->
+    if @get('class') is 'Channel'
+      $.ajax
+        url: "http://api.are.na/v2/channels/#{@get('id')}/thumb"
+        success: (data) =>
+          thumb = data.contents[0]?.image?.thumb?.url
+          app.router.channel.trigger 'channel:thumb', @id, thumb
+
   randomNext: (options)->
     main_channel = app.router.channel
     filtered = _.where @get('connections'), {user_id: app.accountId}

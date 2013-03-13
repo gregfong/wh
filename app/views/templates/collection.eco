@@ -25,8 +25,8 @@
           <!-- TEXT -->
       
         <% else if block.class is 'Channel': %>
-          <!-- CHANNEL 
-          <a class="h3 channelLink" href="#/<%- block.slug %>"><%- block.title %></a>-->
+          <!-- CHANNEL -->
+          <div class="channel" id="channel_<%=block.id%>"></div>
       
         <% else if block.class is "Media": %>
           <!-- MEDIA -->

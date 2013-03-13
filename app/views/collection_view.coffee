@@ -6,6 +6,7 @@ class exports.CollectionView extends Backbone.View
     @template = require "./templates/collection"
 
     @model.on 'reload', @render, @
+    @model.on 'channel:thumb', @updateThumb
 
   addAll: -> @model.contents.each @addOne
     
@@ -14,6 +15,13 @@ class exports.CollectionView extends Backbone.View
       selected = "selected"
     else
       selected = ""
+
+  fetchChannelThumbs: ->
+    channels = @model.contents.where {class: "Channel"}
+    _.each channels, (channel)-> channel.fetchThumb()
+
+  updateThumb: (id, thumb) -> 
+    $("#channel_#{id}").html $('<img/>', {'src': thumb} ) 
   
   render: ->
     @$el.html @template
@@ -21,5 +29,7 @@ class exports.CollectionView extends Backbone.View
       blocks  : @model.contents.toJSON()
 
     @addAll()
+
+    @fetchChannelThumbs()
 
     return this
