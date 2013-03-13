@@ -9,6 +9,7 @@ class exports.Application extends BrunchApplication
     @site_title = "The White Hotel"
     @menuId = 4962 #'the-white-hotel'
     @homeId = 4367 #'white-home'
+    @accountId = 1503
     @menu = new Channel()
     
     $.when(@menu.maybeLoad @menuId).then => #after the menu collection passes maybeLoad:

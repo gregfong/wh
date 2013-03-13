@@ -6,10 +6,9 @@ class exports.MenuView extends Backbone.View
   events:
     "mouseover li a"  : "showTitle"
     "mouseout li a"   : "hideTitle"
-    "click li"    : "setSection"
+    "click li"        : "setSection"
 
   render: ->
-    console.log @options
     @$el.html @template
       title   : @options.title
       channel : @model.toJSON()

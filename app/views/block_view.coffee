@@ -29,7 +29,6 @@ class exports.BlockView extends Backbone.View
   nextImage: (e)->
     e.preventDefault()
     e.stopPropagation()
-    console.log 'this block', @model
     @model.randomNext()
   
   render: ->

@@ -10,14 +10,12 @@ class exports.CollectionView extends Backbone.View
   addAll: -> @model.contents.each @addOne
     
   addOne: (block) =>
-    console.log 'selected', @options.selected
     if block.id is @options.selected
       selected = "selected"
     else
       selected = ""
   
   render: ->
-    console.log 'rendering CollectionView', @model
     @$el.html @template
       channel : @model.toJSON()
       blocks  : @model.contents.toJSON()
